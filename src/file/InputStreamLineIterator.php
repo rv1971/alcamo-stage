@@ -48,7 +48,8 @@ class InputStreamLineIterator implements \Iterator
         if ($this->currentKey_ > 1) {
             /** @throw alcamo::exception::Unsupported when attempting to
              *  rewind, except if the iterator is still at the beginning. */
-            throw new Unsupported('rewind');
+            throw (new Unsupported())
+                ->setMessageContext([ 'feature' => 'rewind' ]);
         }
     }
 
